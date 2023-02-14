@@ -30,7 +30,7 @@ public class ApplicationClient {
         return responseEntity.getBody();
     }
 
-    public ResponseEntity<?> createPostRequestToChooseOffer(LoanOfferDTO loanOfferDTO, String offersUrl) {
+    public ResponseEntity<Object> createPostRequestToChooseOffer(LoanOfferDTO loanOfferDTO, String offersUrl) {
         RestTemplate restTemplate = restTemplateConfig.getRestTemplate();
         HttpHeaders headers = restTemplateConfig.getHeaders();
 

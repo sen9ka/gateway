@@ -29,39 +29,39 @@ public class GatewayController {
 
     @PostMapping("/application")
     @Operation(summary = "Получение списка из 4 LoanOfferDTO")
-    public ResponseEntity<?> getLoanOffers(@RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO) {
+    public ResponseEntity<Object> getLoanOffers(@RequestBody LoanApplicationRequestDTO loanApplicationRequestDTO) {
         List<LoanOfferDTO> loanOfferDTOList = applicationService.makePostRequestToGetOffers(loanApplicationRequestDTO, gatewayProperties.getApplicationLink());
         return new ResponseEntity<>(loanOfferDTOList, HttpStatus.OK);
     }
 
     @PostMapping("/offer")
     @Operation(summary = "Отправка выбранного LoanOffer")
-    public ResponseEntity<?> chooseLoanOffer(@RequestBody LoanOfferDTO loanOfferDTO) {
+    public ResponseEntity<Object> chooseLoanOffer(@RequestBody LoanOfferDTO loanOfferDTO) {
         return applicationService.makePostRequestToChooseOffer(loanOfferDTO, gatewayProperties.getOffersLink());
     }
 
     @PostMapping("/calculation/{applicationId}")
     @Operation(summary = "Получение полностью рассчитанного кредита")
-    public ResponseEntity<?> calculateCredit(@RequestBody FinishRegistrationRequestDTO finishRegistrationRequestDTO, @PathVariable Long applicationId) {
+    public ResponseEntity<Object> calculateCredit(@RequestBody FinishRegistrationRequestDTO finishRegistrationRequestDTO, @PathVariable Long applicationId) {
         CreditDTO creditDTO = dealService.makePostRequestToCalculateCredit(finishRegistrationRequestDTO, gatewayProperties.getCalculationLink() + applicationId);
         return new ResponseEntity<>(creditDTO, HttpStatus.OK);
     }
 
     @PostMapping("/send/{applicationId}")
     @Operation(summary = "Формирование документов по кредиту")
-    public ResponseEntity<?> sendDocuments (@PathVariable Long applicationId) {
+    public ResponseEntity<Object> sendDocuments (@PathVariable Long applicationId) {
         return dealService.makePostRequestToSendDocuments(gatewayProperties.getDealDocumentsLink() + applicationId + gatewayProperties.getDealSendDomain());
     }
 
     @PostMapping("/sign/{applicationId}")
     @Operation(summary = "Запрос на подписание документов, отправка 4-х значного кода")
-    public ResponseEntity<?> signDocuments (@PathVariable Long applicationId) {
+    public ResponseEntity<Object> signDocuments (@PathVariable Long applicationId) {
         return dealService.makePostRequestToSignDocuments(gatewayProperties.getDealDocumentsLink() + applicationId + gatewayProperties.getDealSignDomain());
     }
 
     @PostMapping("/code/{applicationId}")
     @Operation(summary = "Подписание документов")
-    public ResponseEntity<?> sendCode (@PathVariable Long applicationId) {
+    public ResponseEntity<Object> sendCode (@PathVariable Long applicationId) {
         return dealService.makePostRequestToSendCode(gatewayProperties.getDealDocumentsLink() + applicationId + gatewayProperties.getDealCodeDomain());
     }
 

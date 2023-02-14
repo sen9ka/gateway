@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/deal
+    url: jdbc:postgresql://192.168.99.100:5432/deal
     username: postgres
     password: postgres
   jpa:
@@ -18,10 +18,10 @@ springdoc:
     path: /gateway/api-docs
 
 gateway:
-  applicationLink: http://localhost:8070/application/
-  offersLink: http://localhost:8070/application/offer
-  calculationLink: http://localhost:8090/deal/calculate/
-  dealDocumentsLink: http://localhost:8090/deal/document/
+  applicationLink: http://192.168.99.100:8070/application/
+  offersLink: http://192.168.99.100:8070/application/offer
+  calculationLink: http://192.168.99.100:8090/deal/calculate/
+  dealDocumentsLink: http://192.168.99.100:8090/deal/document/
   dealSendDomain: /send
   dealSignDomain: /sign
   dealCodeDomain: /code

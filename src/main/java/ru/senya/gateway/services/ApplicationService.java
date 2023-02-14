@@ -19,7 +19,7 @@ public class ApplicationService {
         return applicationClient.createPostRequestToGetOffers(loanApplicationRequestDTO, applicationsUrl);
     }
 
-    public ResponseEntity<?> makePostRequestToChooseOffer(LoanOfferDTO loanOfferDTO, String offersUrl) {
+    public ResponseEntity<Object> makePostRequestToChooseOffer(LoanOfferDTO loanOfferDTO, String offersUrl) {
 
         return applicationClient.createPostRequestToChooseOffer(loanOfferDTO, offersUrl);
 

@@ -25,7 +25,7 @@ public class DealClient {
         return responseEntity.getBody();
     }
 
-    public ResponseEntity<?> createOfferToSendDocuments(String sendDocumentsUrl) {
+    public ResponseEntity<Object> createOfferToSendDocuments(String sendDocumentsUrl) {
         RestTemplate restTemplate = restTemplateConfig.getRestTemplate();
         HttpHeaders headers = restTemplateConfig.getHeaders();
 
@@ -33,7 +33,7 @@ public class DealClient {
         return restTemplate.exchange(sendDocumentsUrl, HttpMethod.POST, request, new ParameterizedTypeReference<>() {});
     }
 
-    public ResponseEntity<?> createOfferToSignDocuments(String signDocumentsUrl) {
+    public ResponseEntity<Object> createOfferToSignDocuments(String signDocumentsUrl) {
         RestTemplate restTemplate = restTemplateConfig.getRestTemplate();
         HttpHeaders headers = restTemplateConfig.getHeaders();
 
@@ -41,7 +41,7 @@ public class DealClient {
         return restTemplate.exchange(signDocumentsUrl, HttpMethod.POST, request, new ParameterizedTypeReference<>() {});
     }
 
-    public ResponseEntity<?> createOfferToCode(String codeUrl) {
+    public ResponseEntity<Object> createOfferToCode(String codeUrl) {
         RestTemplate restTemplate = restTemplateConfig.getRestTemplate();
         HttpHeaders headers = restTemplateConfig.getHeaders();
 
