@@ -1,9 +1,9 @@
-package ru.senya.gateway.services;
+package ru.senya.gateway.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import ru.senya.gateway.clients.ApplicationClient;
+import ru.senya.gateway.client.ApplicationClient;
 import ru.senya.gateway.entity.dto.LoanApplicationRequestDTO;
 import ru.senya.gateway.entity.dto.LoanOfferDTO;
 

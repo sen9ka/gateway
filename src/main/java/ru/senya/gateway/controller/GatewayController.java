@@ -1,9 +1,8 @@
-package ru.senya.gateway.controllers;
+package ru.senya.gateway.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,8 +11,8 @@ import ru.senya.gateway.entity.dto.CreditDTO;
 import ru.senya.gateway.entity.dto.FinishRegistrationRequestDTO;
 import ru.senya.gateway.entity.dto.LoanApplicationRequestDTO;
 import ru.senya.gateway.entity.dto.LoanOfferDTO;
-import ru.senya.gateway.services.ApplicationService;
-import ru.senya.gateway.services.DealService;
+import ru.senya.gateway.service.ApplicationService;
+import ru.senya.gateway.service.DealService;
 
 import java.util.List;
 
